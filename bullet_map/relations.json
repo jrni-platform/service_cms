@@ -1,0 +1,17 @@
+
+[
+  {
+    "left":"bullet_map",
+    "right":"bullet",
+    "type":"has_one",
+    "drops": true,
+    "hal": true
+  },
+  {
+    "left":"bullet_map",
+    "right":"bb.service",
+    "type":"has_one",
+    "drops": true,
+    "hal": true
+  }
+]

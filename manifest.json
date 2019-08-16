@@ -1,0 +1,23 @@
+{
+  "bbAppManifestVersion":"1.0",
+  "name": "Service CMS Example Application",
+  "unique_name": "service_cms",
+  "version": "0.1",
+  "description": "Example app that adds extra service descriptions, editable in Studio",
+  "author": "BookingBug",
+  "licence": "MIT",
+  "tags": "service cms",
+  "config": false,
+  "panels": [ 
+    "cms_panel" 
+  ],
+  "objects": [  
+     "bullet",
+     "bullet_map",
+     "bb.service"
+  ],
+  "script_packs": [
+  ],
+  "liquid": [
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "bullet":{
+    "key": "bullet",
+    "title": "Title",
+    "type": "string",
+    "required": false,
+    "drops": true,
+    "permissions": {
+      "admin": ["new","edit", "put","post","list","get","del"],
+      "public": ["get"]
+    }
+  },
+  "descripton": {
+    "key": "descripton",
+    "title": "Description",
+    "type": "string",
+    "required": false,
+    "drops": true,
+    "x-schema-form": {
+        "type": "textarea",
+        "rows": 60
+    },
+    "permissions": {
+      "admin": ["new","edit", "put","post","list","get","del"],
+      "public": ["get"]
+    }
+  }
+}

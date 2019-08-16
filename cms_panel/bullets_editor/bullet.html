@@ -1,0 +1,62 @@
+<section class="page-header">
+  <div class="row">
+    <div class="col-xs-8">
+      <h2 class="title ng-scope">Bullets Editor</h2>
+    </div>
+  </div>
+</section>
+
+
+<div class="bb-panel__body">
+  <h3>{{$ctrl.name}}</h3>
+  <div ng-if="$ctrl.object">
+
+
+    <div
+      ng-if="!$ctrl.object.id"
+      class="bb-schema-form"
+      bb-schema-form
+      custom-form=""
+      base="$ctrl.app"
+      form-rel="new_bullet"
+      save-rel="bullets"
+      options="$ctrl.schemaFormOptions"
+      on-success-save="$ctrl.onSuccess"
+      on-cancel="$ctrl.onCancel">
+    </div>
+
+    <div
+      ng-if="$ctrl.object.id"
+      bb-schema-form-edit
+      readonly="false"
+      class="bb-schema-form"
+      model="$ctrl.object"
+      custom-form="$ctrl.customForm"
+      on-success-save="$ctrl.onSuccess"
+      on-cancel="$ctrl.onCancel"
+      options="$ctrl.schemaFormOptions">
+    </div>
+
+  </div>
+  <div ng-if="!$ctrl.object && $ctrl.app">
+    <div class="btn-primary btn pull-right" ng-click="$ctrl.createNew()">Create {{$ctrl.name}}</div>
+
+    <table class="table" ng-if="$ctrl.schema">
+      <thead>
+        <tr>
+          <th ng-repeat="col in $ctrl.schema.properties" scope="col">{{col.key}}</th>
+          <th scope="col">&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="obj in $ctrl.objects">
+          <th ng-repeat="col in $ctrl.schema.properties" scope="col">{{obj[col.key]}}</th>
+          <td class="">
+            <a ng-click="$ctrl.delete(obj)" class="btn btn-default btn-sm pull-right"><i class="fa fa-trash"></i> Delete</a>
+            <a ng-click="$ctrl.edit(obj)" class="btn btn-default btn-sm pull-right"><i class="fa fa-pencil"></i> Edit</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

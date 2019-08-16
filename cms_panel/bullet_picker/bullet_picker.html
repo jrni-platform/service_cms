@@ -1,0 +1,48 @@
+<div class="table-responsive bullet_picker-container">
+  <div class="bullet_picker-header">
+    <p>Select Bullets to display</p>
+    <input
+      type="text"
+      name="tableSearch"
+      class="form-control"
+      placeholder="Search"
+      ng-model="$ctrl.search"
+    />
+  </div>
+  <table class="table table-bordered table-hover table-striped">
+    <tbody>
+      <tr>
+        <th>Name</th>
+        <th id="toggle-control-heading">
+          Use?
+        </th>
+      </tr>
+      <tr
+        ng-repeat="bullet in $ctrl.bullets"
+        ng-if="!$ctrl.search || ($ctrl.search && $ctrl.matchesFilter(bullet.bullet))">
+        <td>
+          <span>{{bullet.bullet}}</span>
+        </td>
+        <td class="check-items">
+          <input
+            aria-labelledby="toggle-control-heading"
+            type="checkbox"
+            ng-click="$ctrl.toggleItem(bullet.id)"
+            ng-checked="$ctrl.enabledItems[bullet.id]"
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="bullet_picker-footer">
+    <div aria-live="polite">
+      <p ng-if="$ctrl.showSuccessMessage">Updated successfully</p>
+    </div>
+    <button
+      type="button"
+      class="btn btn-primary pull-right"
+      ng-disabled="!$ctrl.unsavedChanges"
+      ng-click="$ctrl.save()">Save
+    </button>
+  </div>
+</div>
